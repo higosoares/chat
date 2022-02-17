@@ -1,0 +1,140 @@
+:root {
+    --color-white-chocolate: #ECE5DD;
+    --color-white: #FFFFFF;
+    --color-ufo-green: #25D366;
+    --color-tea-green: #D9FDD3;
+    --color-gray: #EEEEEE;
+    --color-dark-gray: #AAAAAA;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.content {
+    border: 1px solid var(--color-gray);
+}
+
+.users-wrapper, .messages-wrapper .messages {
+    overflow-y: scroll;
+}
+
+.users-wrapper {
+    height: 600px;
+    flex: 1;
+}
+
+.users-wrapper .users .user {
+    cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    padding: 15px;
+}
+
+.users-wrapper .users .user:hover, .users-wrapper .users .user.active {
+    background: var(--color-gray);
+}
+
+.users-wrapper .users .user:last-child {
+    margin-bottom: 0;
+}
+
+.users-wrapper .users .user .pending {
+    position: absolute;
+    left: 13px;
+    top: 9px;
+    background: var(--color-ufo-green);
+    margin: 0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 5px;
+    color: var(--color-white);
+    font-size: 12px;
+}
+
+.users-wrapper .users .user .media .media-left {
+    margin: 0 10px;
+}
+
+.users-wrapper .users .user .media .media-left img {
+    width: 64px;
+    border-radius: 64px;
+}
+
+.users-wrapper .users .user .media .media-body p {
+    margin: 6px 0;
+    word-break: break-word;
+}
+
+.messages-wrapper {
+    flex: 2;
+}
+
+.messages-wrapper .messages {
+    height: 550px;
+    padding: 10px;
+    background: var(--color-white-chocolate);
+}
+
+.messages-wrapper .messages ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-wrapper .messages ul li.message {
+    margin-bottom: 15px;
+}
+
+.messages-wrapper .messages ul lo.message p {
+    margin: 5px 0;
+}
+
+.messages-wrapper .messages ul li.message .received, .messages-wrapper .messages ul li.message .sent {
+    width: 45%;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.messages-wrapper .messages ul li.message .received {
+    background: var(--color-white);
+}
+
+.messages-wrapper .messages ul li.message .sent {
+    background: var(--color-tea-green);
+    float: right;
+    text-align: right;
+}
+
+.messages-wrapper .messages ul li.message .date {
+    color: var(--color-dark-gray);
+    font-size: 12px;
+}
+
+.input-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: var(--color-white-chocolate);
+}
+
+.input-text .submit {
+    width: 98%;
+    padding: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid var(--color-gray);
+}
+
+.input-text .submit:focus {
+    border: 1px solid var(--color-dark-gray);
+}
+
