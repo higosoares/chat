@@ -5,10 +5,14 @@
 @section('scripts')
     <script src="{{ asset('js/pusher.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}" defer></script>
-    <script src="{{ asset('js/chat.js') }}" defer></script>
-    <script src="{{ asset('js/index.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
+    <script src="{{ asset('js/utilities/api.js') }}" defer></script>
+    <script src="{{ asset('js/utilities/alert.js') }}" defer></script>
+    <script src="{{ asset('js/message.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard/chat.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard/index.js') }}" defer></script>
     <script>
-        const auth_user = "{{ auth()->id() }}";
+        const authUser = "{{ auth()->id() }}";
     </script>
 @endsection
 

@@ -20,6 +20,7 @@ ul li {
     border: 1px solid var(--color-gray);
 }
 
+/** Usuarios **/
 .users-wrapper, .messages-wrapper .messages {
     overflow-y: scroll;
 }
@@ -73,6 +74,7 @@ ul li {
     word-break: break-word;
 }
 
+/** Mensagens **/
 .messages-wrapper {
     flex: 2;
 }
@@ -90,6 +92,7 @@ ul li {
 
 .messages-wrapper .messages ul li.message {
     margin-bottom: 15px;
+    position: relative;
 }
 
 .messages-wrapper .messages ul lo.message p {
@@ -112,9 +115,36 @@ ul li {
     text-align: right;
 }
 
+.messages-wrapper .messages ul li.message.deleted .text {
+    color: var(--color-dark-gray);
+    font-style: italic;
+}
+
 .messages-wrapper .messages ul li.message .date {
     color: var(--color-dark-gray);
     font-size: 12px;
+}
+
+.messages-wrapper .messages ul li.message svg {
+    color: red;
+    position: absolute;
+    top: 10px;
+}
+
+.messages-wrapper .messages ul li.message:not(.deleted):hover svg {
+    display: block;
+}
+
+.messages-wrapper .messages ul li.message .type-user:hover {
+    cursor: pointer;
+}
+
+.messages-wrapper .messages ul li.message .type-user.sent svg {
+    right: 340px;
+}
+
+.messages-wrapper .messages ul li.message .type-user.received svg {
+    left: 340px;
 }
 
 .input-text {
@@ -136,5 +166,31 @@ ul li {
 
 .input-text .submit:focus {
     border: 1px solid var(--color-dark-gray);
+}
+
+.separator-messages {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--color-dark-gray);
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.separator-messages span {
+    background: var(--color-white-chocolate);
+    padding: 0 10px;
+    font-style: italic;
+}
+
+.loading {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.loading img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 }
 

@@ -1,6 +1,8 @@
 <li class="user" id="user-{{ $user->id }}">
 
-    <span class="pending {{ $user->sentMessages->count() == 0 ? 'hidden' : '' }}">{{ $user->sentMessages->count() }}</span>
+    <span class="pending {{ $user->sentMessages->count() == 0 ? 'hidden' : '' }}">
+        {{ $user->sentMessages->count() }}
+    </span>
 
     <div class="media">
         <div class="media-left">

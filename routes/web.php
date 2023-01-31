@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])
+    ->name('dashboard');
 
 Route::prefix('/message')->group(function () {
-    Route::post('/', [DashboardController::class, 'create'])->name('message.create');
-    Route::get('/user/{user}', [DashboardController::class, 'get'])->name('message.user.get');
+    Route::post('/', [MessageController::class, 'create'])
+        ->name('message.create');
+    Route::delete('/{message}', [MessageController::class, 'delete'])
+        ->name('message.user.delete');
+    Route::get('/user/{user}', [MessageController::class, 'get'])
+        ->name('message.user.get');
 });
 
 

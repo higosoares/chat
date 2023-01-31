@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,6 +25,12 @@ class Message extends Model
         'deleted_at'
     ];
 
+    protected $appends = [
+        'show_button'
+    ];
+
+    protected $formatDate = 'Y-m-d H:i';
+
     public function receiver()
     {
         return $this->belongsTo(User::class);
@@ -34,6 +39,16 @@ class Message extends Model
     public function sender()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getTextAttribute($value)
+    {
+        return $this->trashed() ? 'Mensagem excluída' : $value;
+    }
+
+    public function getShowButtonAttribute()
+    {
+        return !$this->trashed() && auth()->user()->id == $this->attributes['sender_id'];
     }
 
     /**
@@ -46,13 +61,8 @@ class Message extends Model
         $this->attributes['created_at'] = Carbon::now();
     }
 
-    /**
-     *
-     * @param  \DateTimeInterface  $date
-     * @return string
-     */
-    protected function serializeDate(DateTimeInterface $date)
+    public function getCreatedatAttribute($attribute)
     {
-        return $date->format('Y-m-d H:i');
+        return Carbon::parse($attribute)->format($this->formatDate);
     }
 }
